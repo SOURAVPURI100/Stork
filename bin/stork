@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# These environment variables can be used to configure this script:
+#
+#   STORK_HOME     The Stork workspace directory.
+#                  Default: $(dirname $0)/../
+#
+#   JAVA_HOME      The Java Development Kit installation location.
+#                  Default: $(dirname $(which java))/
+#
+#   JAVA_OPTS      Additional Java runtime options.
+#
+#   STORK_CONFIG   The Stork config file location.
+#                  Default: $STORK_HOME/stork.conf
+#
+#   STORK_PID      The Stork server PID file location.
+#                  Default: $STORK_HOME/stork.pid
+
+CLASS=stork.core.Main
+PROG=`basename $0`
+
+PROGDIR=$(readlink -f "$0")
+PROGDIR=$(dirname "$PROGDIR")
+
+# If this is a symlink with an underscore, "unshift" the part after
+# the underscore into the arguments. This lets us create links like
+# stork_submit and have them call the submit command.
+IFS='_' read -ra SPLIT <<< "$PROG"
+PROG="${SPLIT[0]}"
+unset SPLIT[0]
+set -- "${SPLIT[@]}" "$@"
+
+# Determine the command and if -d was specified.
+for ARG in "$@"; do
+  [ -z "$CMD" ] && [ "$ARG[0]" != "-" ] && CMD=$ARG
+  [ "$ARG" = "-d" ] && {
+    DAEMONIZE=true
+    break
+  }
+done
+
+# Only daemonize if we're running a server.
+[ -n "$DAEMONIZE" ] && [ "$CMD" != "server" ] && DAEMONIZE=
+
+# Determine the absolute location of STORK_HOME.
+[ -z "$STORK_HOME" ] && STORK_HOME=$(dirname "$PROGDIR")
+[ -d "$STORK_HOME" ] || {
+  echo "Error: STORK_HOME must be a directory."
+  exit 1
+}
+
+# Change to the STORK_HOME directory.
+cd "$STORK_HOME" || {
+  echo "Error: cannot change directory to STORK_HOME ($STORK_HOME)"
+}
+
+# Set default variables if unset.
+[ -z "$JAVA_HOME" ] && JAVA_HOME=$(dirname $(dirname $(which java)))
+
+[ -z "$STORK_CONFIG" ] && STORK_CONFIG=$STORK_HOME/stork.conf
+[ -d "$STORK_CONFIG" ] && STORK_CONFIG=$STORK_CONFIG/stork.conf
+
+[ -z "$STORK_PID" ] && STORK_PID=$STORK_HOME/stork.pid
+[ -d "$STORK_PID" ] && STORK_PID=$STORK_PID/stork.pid
+
+# Determine Java binary location.
+JAVA="$JAVA_HOME/bin/java"
+
+# Run it. TODO: Don't simply nohup or redirect to /dev/null.
+[ "$DAEMONIZE" = true ] && {
+  nohup $JAVA -Xmx512m -cp "$STORK_HOME/lib/*" $JFLAGS $CLASS $@ &> /dev/null &
+  echo "Starting Stork server in background... (PID: $!)"
+} || {
+  exec $JAVA -Xmx512m -cp "$STORK_HOME/lib/*" $JFLAGS $CLASS $@
+}

@@ -1,0 +1,30 @@
+<!--Ins Begin of ++ spu -->
+<!--
+<form class="logout-form" ng-controller="User" ng-submit="promise = logout('isConfirm', $hide)">
+    <div class="alert alert-danger" ng-if="error" ng-bind="error.error"></div>
+    <p>Do you want to Logout?</p>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">
+      Log out
+    </button>
+        <button class="btn btn-primary" type="submit">
+      Cancel
+    </button>
+    </div>
+</form>
+-->
+
+<div modal="showLogout" close="cancel()" ng-controller="User">
+    <div class="modal-header">
+        <h5><strong>Confirm Logout</strong></h5>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to Log out?</p>
+        <div class="text-center">
+            <button class="btn btn-primary" ng-click="logoutConfirm('Yes')">Log Out</button>
+            <button class="btn btn-primary" ng-click="logoutConfirm('No')">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!--Ins End of ++ spu -->

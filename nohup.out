@@ -1,0 +1,110 @@
+Jun 19, 2017 1:37:28 PM stork.core.server.Server <init>
+INFO: Loading server...
+Jun 19, 2017 1:37:28 PM stork.core.server.Server <init>
+INFO: Server config: {
+  "state_save_interval": 120,
+  "connect": "tcp://localhost:57024/",
+  "smtp_server": "smtp.buffalo.edu",
+  "max_attempts": 10,
+  "max_history": 10,
+  "state_file": "stork.json",
+  "registration": true,
+  "dropbox": {
+    "secret": "1esxloucodgngns",
+    "redirect": "http://127.0.0.1:8080/api/stork/oauth",
+    "key": "r6oz0fat2pmfldv"
+  },
+  "email": "StorkCloud <noreply@storkcloud.org>",
+  "web_service_url": "http://127.0.0.1:8080/",
+  "max_jobs": 10,
+  "listen": [
+    "tcp://127.0.0.1:57024/",
+    "http://127.0.0.1:8080/api/stork"
+  ],
+  "request_timeout": 5.0
+}
+Jun 19, 2017 1:37:28 PM stork.core.server.Server loadServerState
+INFO: Loading server state file: stork.json
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO: Registered module "stork_ftp_module" [handle: stork_ftp_module]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [ftp, gridftp, gsiftp]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO: Registered module "stork_irods_module" [handle: stork_irods_module]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [irods]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO: Registered module "stork_http_module" [handle: stork_http_module]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [http, https]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO: Registered module "stork_dbx_module" [handle: stork_dbx_module]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [dropbox]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO: Registered module "stork_sftp_module" [handle: stork_sftp_module]
+Jun 19, 2017 1:37:28 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [scp, sftp]
+Jun 19, 2017 1:37:28 PM stork.core.server.DumpStateThread <init>
+INFO: Starting server state dump thread.
+Jun 19, 2017 1:37:29 PM stork.core.commands.StorkServer execute
+INFO: Listening for TCP connections on: 127.0.0.1:57024
+Jun 19, 2017 1:37:29 PM stork.core.commands.StorkServer execute
+INFO: Listening for HTTP connections on: 127.0.0.1:8080
+Jun 19, 2017 1:37:29 PM stork.core.net.HTTPServer createStaticServer
+INFO: Serving static web files from web directory at http://127.0.0.1:8080/
+Jun 19, 2017 1:49:30 PM stork.core.server.Server <init>
+INFO: Loading server...
+Jun 19, 2017 1:49:30 PM stork.core.server.Server <init>
+INFO: Server config: {
+  "state_save_interval": 120,
+  "connect": "tcp://localhost:57024/",
+  "smtp_server": "smtp.buffalo.edu",
+  "max_attempts": 10,
+  "max_history": 10,
+  "state_file": "stork.json",
+  "registration": true,
+  "dropbox": {
+    "secret": "1esxloucodgngns",
+    "redirect": "http://127.0.0.1:8080/api/stork/oauth",
+    "key": "r6oz0fat2pmfldv"
+  },
+  "email": "StorkCloud <noreply@storkcloud.org>",
+  "web_service_url": "http://127.0.0.1:8080/",
+  "max_jobs": 10,
+  "listen": [
+    "tcp://127.0.0.1:57024/",
+    "http://127.0.0.1:8080/api/stork"
+  ],
+  "request_timeout": 5.0
+}
+Jun 19, 2017 1:49:30 PM stork.core.server.Server loadServerState
+INFO: Loading server state file: stork.json
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO: Registered module "stork_ftp_module" [handle: stork_ftp_module]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [ftp, gridftp, gsiftp]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO: Registered module "stork_irods_module" [handle: stork_irods_module]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [irods]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO: Registered module "stork_http_module" [handle: stork_http_module]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [http, https]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO: Registered module "stork_dbx_module" [handle: stork_dbx_module]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [dropbox]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO: Registered module "stork_sftp_module" [handle: stork_sftp_module]
+Jun 19, 2017 1:49:30 PM stork.module.ModuleTable register
+INFO:   Registering protocol(s): [scp, sftp]
+Jun 19, 2017 1:49:30 PM stork.core.server.DumpStateThread <init>
+INFO: Starting server state dump thread.
+Jun 19, 2017 1:49:30 PM stork.core.commands.StorkServer execute
+INFO: Listening for TCP connections on: 127.0.0.1:57024
+Jun 19, 2017 1:49:30 PM stork.core.commands.StorkServer execute
+INFO: Listening for HTTP connections on: 127.0.0.1:8080
+Jun 19, 2017 1:49:30 PM stork.core.net.HTTPServer createStaticServer
+INFO: Serving static web files from web directory at http://127.0.0.1:8080/
